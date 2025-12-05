@@ -30,6 +30,18 @@ This DLL hooks the `EndScene` function in DirectX 9 to enable custom drawing and
 
 ## Prerequisites
 
+## Custom Images (Required)
+
+**You MUST place any custom images or textures in your Undertale game folder** — the same folder where `UNDERTALE.exe` is located.  
+
+**Steps:**
+
+1. Find your Undertale installation folder (where `UNDERTALE.exe` is located).  
+2. Copy all custom images or textures into this folder.  
+3. Launch Undertale with **Undertale Hooker** injected. The DLL will automatically load the images at runtime.  
+
+> ⚠️ This step is required. **Undertale Hooker will not function properly if images are not placed in the game folder.**
+
 ### Microsoft DirectX SDK (June 2010) Required
 
 To build and run **Undertale Hooker** successfully, you **must have the Microsoft DirectX SDK (June 2010) installed** on your system.
