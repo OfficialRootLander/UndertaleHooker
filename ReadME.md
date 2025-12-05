@@ -90,4 +90,4 @@ For questions or support, please contact:
 
 ---
 
-Thank you for using **Undertale Hooker** — enjoy multiplayer Undertale without modding the source!
+Thank you for using Undertale Hooker — enjoy modifying Undertale at runtime!
