@@ -1,8 +1,10 @@
 # Undertale Hooker
 
+#Gameserver coming soon!
+
 ## Overview
 
-**Undertale Hooker** lets you play **multiplayer Undertale** by hooking directly into the game’s DirectX 9 rendering pipeline — without modifying any game source files or executables.
+**Undertale Hooker** lets you play **multiplayer Undertale** and **mod it on runtime** by hooking directly into the game’s DirectX 9 rendering pipeline — without modifying any game source files or executables.
 
 This DLL hooks the `EndScene` function in DirectX 9 to enable custom drawing and multiplayer features in Undertale.
 
@@ -17,6 +19,8 @@ To build and run **Undertale Hooker** successfully, you **must have the Microsof
 This SDK provides essential libraries and headers (`d3dx9.lib`, `d3dx9.dll`, `d3dx9.h`) needed for texture loading and hooking DirectX 9.
 
 The DirectX SDK is **not included** with Visual Studio or the default Windows SDK.
+
+You would have to add this!
 
 ---
 
@@ -64,7 +68,7 @@ Get the official DirectX SDK here:
 ## Contact
 
 For questions or support, please contact:  
-**[Your Name or Contact Info]**
+**[Discord: RootLander]**
 
 ---
 
