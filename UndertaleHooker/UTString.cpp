@@ -1,9 +1,7 @@
 ﻿#include "pch.h"
 #include "UTString.h"
 
-std::vector<TextReplacement> Replacements = { //there is still a bug where it hangs somethimes when you search
-    { "traveller", "_S_U_R_P_R_I_S_E  _C_A_R_G_O  _B_O_X", 43, 36 }, //add more
-    { "fills you", "_D_E_T_E_R_M_I_N_A_T_I_O_N", 20, 26 }, //add more
+std::vector<TextReplacement> Replacements = {
 };
 
 
