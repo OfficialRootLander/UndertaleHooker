@@ -20,27 +20,31 @@ This DLL hooks the `EndScene` function in DirectX 9 to enable custom drawing and
 | Command                 | What It Does                                                                                  |
 |-------------------------|-----------------------------------------------------------------------------------------------|
 | `OPEN <IP>`             | Connects to a gameserver at the specified IP address so you can join multiplayer. Example: `OPEN 127.0.0.1` |
-| `UNLOCK UTADMIN <CODE>` | Sends a code to the server requesting admin rights. The server must approve it. Example: `UNLOCK UTADMIN 1234` |
+| `UNLOCK UTADMIN <CODE>` | Coming Soon!` |
 | `ROOM <RoomID>`         | Instantly teleports your player to the specified room in the game world. Example: `ROOM 68 (Snowadin` |
 | `MOB <MobID>`           | Spawns a character or mob in the current room. Example: `MOB 95` (**ID 95 is Sans**, the iconic Undertale character) |
 | `S0`                    | Stops all in-game sound immediately. Useful for muting music or sound effects.               |
 | `S1`                    | Enables sound in the game if it was previously stopped or locked.                             |
 | `S2`                    | Locks the current audio state so it cannot be changed until unlocked.                        |
 
+### Player Abilities
+- Change the player outfit with F1.
+- more coming soon!
 
 ## Prerequisites
 
 ## Custom Images (Required)
 
-**You MUST place any custom images or textures in your Undertale game folder** — the same folder where `UNDERTALE.exe` is located.  
+**You MUST copy all images from the `images` folder into your Undertale game folder** — the same folder where `UNDERTALE.exe` is located.  
 
 **Steps:**
 
-1. Find your Undertale installation folder (where `UNDERTALE.exe` is located).  
-2. Copy all custom images or textures into this folder.  
-3. Launch Undertale with **Undertale Hooker** injected. The DLL will automatically load the images at runtime.  
+1. Locate your Undertale installation folder (where `UNDERTALE.exe` is located).  
+2. Open the `images` folder that comes with Undertale Hooker.  
+3. Copy all images from the `images` folder into your Undertale game folder.  
+4. Launch Undertale with **Undertale Hooker** injected. The DLL will automatically load the images at runtime.  
 
-> ⚠️ This step is required. **Undertale Hooker will not function properly if images are not placed in the game folder.**
+> ⚠️ This step is required. **Undertale Hooker will not work correctly if images are not copied from the `images` folder to the game folder.**
 
 ### Microsoft DirectX SDK (June 2010) Required
 
