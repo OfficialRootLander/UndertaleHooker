@@ -27,7 +27,6 @@ This DLL hooks the `EndScene` function in DirectX 9 to enable custom drawing and
 | `S1`                    | Enables sound in the game if it was previously stopped or locked.                             |
 | `S2`                    | Locks the current audio state so it cannot be changed until unlocked.                        |
 
----
 
 ### Example Usage
 
@@ -39,7 +38,6 @@ MOB 95
 S0
 UNLOCK UTADMIN 1234
 
----
 
 ## Prerequisites
 
