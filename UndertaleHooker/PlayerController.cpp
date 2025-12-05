@@ -69,10 +69,6 @@ int __fastcall APlayerController::OnWorldSaveHook(APlayerController* thisPtr)
     return 0;
 }
 
- //UNDERTALE.exe+F98E5 - C6 00 00              - mov byte ptr [eax],00
-
-//UNDERTALE.exe+2A73FD - 8B 4D F0              - mov ecx,[ebp-10]
-
 
 const char* __fastcall APlayerController::SaveUndertaleHook(APlayerController* thisPtr)
 {
@@ -83,12 +79,7 @@ const char* __fastcall APlayerController::SaveUndertaleHook(APlayerController* t
     }
     SaveCalls = 0;
 
-    std::cout << "\n[+] Save Hook Called. Writing Sans Room...";
-
-    // Call your save function here, for example:
-    // If you want to launch your save thread synchronously (or just call a save function):
-    //push data to server lol
-    //CreateThread(nullptr, 0, SaveThread, nullptr, 0, nullptr);  // call directly, or create a thread if needed
+    //feel free to add your own safe code here
 
     return "AAAAAA";
 }
@@ -132,20 +123,7 @@ int __fastcall APlayerController::OnRoomCallHook(APlayerController* thisPtr, voi
         push eax
         mov eax_value, eax
         pop eax
-    }
-    //als de local double niet wordt aangepast is dit een shop of een attack call!
-
-    //shop start at 311
-    
-    //00A18EA0
-
-
-
-    //printf("eax: %d", eax_value);
-    //dialog call Edi: 345823632Interaction Hook Called!
-    //normal call Edi: 345824272
-
-    //311835024I 
+    } 
 
     oldparam = param;          // Store current param as old
     param = secondParam;       // Update to new value
@@ -193,12 +171,6 @@ int __fastcall APlayerController::OnRoomLoadHook(APlayerController* thisPtr, voi
     CurrentRoomID = RoomID; //hope this doesnt crash
 
     ShouldPairReset = true;
-    //UndertaleDrawer::EmptyAllPares();
-    // 
-    // 
-    // 
-    //int RandomRoom = rand() % MaxRooms;
-   // Room::TeleportRoom(RandomRoom); //diabolical
 
     if (originalOnRoomLoadOrgin)
         return originalOnRoomLoadOrgin(thisPtr); // still call original
@@ -276,28 +248,6 @@ int __fastcall APlayerController::GetPlayerCords(bool X)
     }
 }
 
-/*
-UNDERTALE.exe+3D387 - 89 86 D4000000        - mov [esi+000000D4],eax
-
-this sets these values of Y
-
-so if I hook this 3 s after room hook then I can get Y
-
-UNDERTALE.exe+3D169 - 0F8A 63020000         - jp UNDERTALE.exe+3D3D2
-UNDERTALE.exe+3D16F - F3 0F7E 47 08         - movq xmm0,[edi+08]
-UNDERTALE.exe+3D174 - 66 0FD6 86 D0000000   - movq [esi+000000D0],xmm0
-UNDERTALE.exe+3D17C - F3 0F7E 47 10         - movq xmm0,[edi+10]
-UNDERTALE.exe+3D181 - 66 0FD6 86 D8000000   - movq [esi+000000D8],xmm0
-UNDERTALE.exe+3D189 - 8B 8E DC000000        - mov ecx,[esi+000000DC]
-UNDERTALE.exe+3D18F - 8B 96 D0000000        - mov edx,[esi+000000D0]
-UNDERTALE.exe+3D195 - 8B 86 D8000000        - mov eax,[esi+000000D8]
-UNDERTALE.exe+3D19B - 2B 8E D4000000        - sub ecx,[esi+000000D4]
-
-*/
-
-//UNDERTALE.exe+3D169 - 0F8A 63020000         - jp UNDERTALE.exe+3D3D2
-
-
 int LastY = 0;
 
 int __fastcall APlayerController::OnPlayerVerticalHook(APlayerController* thisPtr)
@@ -365,31 +315,6 @@ bool LoadedBeginRoom = false;
 int RoomTicks = 0;
 
 int WantedRoom = 68;
-//was 68
-
-//full offset table
-/*
-Address     Offset from 12A05010
-12A04640    -0x5D0
-12A04660    -0x5B0
-12A05010    0x0
-12A049E0    -0xD0
-12A04B50    -0x4C0
-12A04690    -0x580
-12A04A50    -0x5C0
-12A04B40    -0x4D0
-12A04B30    -0x4E0
-12A04A70    -0x590
-12A04BD0    -0x440
-12A04750    -0x4C0
-12A04B00    -0x510
-12A04AE0    -0x530
-12A04AF0    -0x520
-12A045F0    -0x620
-12A045E0    -0x630
-12A04710    -0xF0
-12A04A60    -0xB0
-*/
 
 DWORD WINAPI APlayerController::PlayerMainThread(LPVOID lpParameter) //648 ends
 {
@@ -445,38 +370,6 @@ DWORD WINAPI APlayerController::PlayerMainThread(LPVOID lpParameter) //648 ends
 
     return 0;
 }
-
-/*
-
-DWORD WINAPI APlayerController::PlayerMainThread(LPVOID lpParameter) //648 ends
-{
-    while (MonitorRunning)
-    {
-        if (param != nullptr && param == oldparam)
-        {
-            uintptr_t addr = reinterpret_cast<uintptr_t>(param);
-            uint8_t highByte = (addr >> 24) & 0xFF;
-
-            if (highByte != 0x06 && addr != 0 && !IsInShop)
-            {
-                std::cout << "[+] Entered Shop!\n";
-                IsInShop = true;
-            }
-            else if (highByte == 0x06 && IsInShop)
-            {
-                std::cout << "[-] Left Shop!\n";
-                IsInShop = false;
-            }
-        }
-
-        std::this_thread::sleep_for(std::chrono::milliseconds(50));
-    }
-
-    return 0;
-}
-
-
-*/
 
 #include <windows.h>
 #include <fstream>
@@ -552,82 +445,3 @@ DWORD WINAPI APlayerController::SaveThread(LPVOID lpParameter)
 
 int Key = 0;
 int ESCCalls = 0;
-
-
-/*
-int __fastcall APlayerController::OnKeyPressed(APlayerController* thisPtr)
-{
-    if ((GetAsyncKeyState(VK_LEFT) & 0x8000) ||
-        (GetAsyncKeyState(VK_RIGHT) & 0x8000) ||
-        (GetAsyncKeyState(VK_UP) & 0x8000) ||
-        (GetAsyncKeyState(VK_DOWN) & 0x8000))
-    {
-        RecentlyMoved = true;
-    }
-
-    if (GetAsyncKeyState(VK_ESCAPE) & 0x8000)
-    {
-        std::cout << "Escape key is currently held down!\n";
-        if (ESCCalls > 20) //60fps undertale
-        {
-            Sleep(10000);
-            //run save hook
-            return 0; //now you cant quite undertale
-        }
-        ESCCalls++;
-    }
-
-    if (originalOnKeyLogged)
-        return originalOnKeyLogged(thisPtr);
-}
-*/
-
-
-/*
-USER32.GetKeyState+2B - 73 62                 - jae USER32.GetKeyState+8F
-USER32.GetKeyState+2D - 64 8B 35 18000000     - mov esi,fs:[00000018]
-USER32.GetKeyState+34 - 8B 86 DC0F0000        - mov eax,[esi+00000FDC]
-USER32.GetKeyState+3A - 85 C0                 - test eax,eax
-USER32.GetKeyState+3C - 79 02                 - jns USER32.GetKeyState+40
-USER32.GetKeyState+3E - 03 F0                 - add esi,eax
-USER32.GetKeyState+40 - A1 505C5576           - mov eax,[USER32.gSharedInfo+238]
-USER32.GetKeyState+45 - 8B 8E 70080000        - mov ecx,[esi+00000870]
-USER32.GetKeyState+4B - 3B 88 481B0000        - cmp ecx,[eax+00001B48]
-USER32.GetKeyState+51 - 75 3C                 - jne USER32.GetKeyState+8F
-*/
-
-
-
-
-
-/*
-
-
-int __fastcall APlayerController::OnSaveTickHook(APlayerController* thisPtr, void* secondParam)
-{
-    PlayerControllerSaveCalls++;
-    std::cout << "SavTick... secondParam: " << secondParam << std::endl;
-
-    if (originalOnSaveTick)
-        return originalOnSaveTick(thisPtr); // still call original with thisPtr, but don't touch it here
-
-    return 0;
-}
-
-
-
-*/
-
-
-/*
-int __fastcall APlayerController::OnSaveTickHook(APlayerController* thisPtr)
-{
-    PlayerControllerSaveCalls++;
-    std::cout << "SavTick..." << std::endl;
-    if (originalOnSaveTick)
-        return originalOnSaveTick(thisPtr);
-
-    return 0;
-}
-
-*/

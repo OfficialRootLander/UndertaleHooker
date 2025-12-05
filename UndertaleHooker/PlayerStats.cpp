@@ -225,7 +225,6 @@ DWORD WINAPI APlayerStatistics::PlayerStatiscticsThread(LPVOID lParam)
             std::cout << "CurrentMobID changed: " << MobID << "\n";
             LastPlayerStats.CurrentMobID = MobID;
         }
-        //when player stats end with 5010 or 010 assign as base
 
 
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
