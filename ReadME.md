@@ -28,17 +28,6 @@ This DLL hooks the `EndScene` function in DirectX 9 to enable custom drawing and
 | `S2`                    | Locks the current audio state so it cannot be changed until unlocked.                        |
 
 
-### Example Usage
-
-```txt
-~  <-- Press tilde to open console
-OPEN 127.0.0.1
-ROOM 306
-MOB 95
-S0
-UNLOCK UTADMIN 1234
-
-
 ## Prerequisites
 
 ### Microsoft DirectX SDK (June 2010) Required
