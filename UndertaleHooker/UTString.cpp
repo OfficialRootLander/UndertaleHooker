@@ -2,7 +2,7 @@
 #include "UTString.h"
 
 std::vector<TextReplacement> Replacements = {
-};
+}; //empty for now
 
 
 char* CurrentGameString = nullptr;
