@@ -27,6 +27,9 @@ This DLL hooks the `EndScene` function in DirectX 9 to enable custom drawing and
 | `S1`                    | Enables sound in the game if it was previously stopped or locked.                             |
 | `S2`                    | Locks the current audio state so it cannot be changed until unlocked.                        |
 
+### Player Abilities
+- Change the player outfit with F1.
+- more coming soon!
 
 ## Prerequisites
 
