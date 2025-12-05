@@ -21,11 +21,13 @@ This DLL hooks the `EndScene` function in DirectX 9 to enable custom drawing and
 |-------------------------|-----------------------------------------------------------------------------------------------|
 | `OPEN <IP>`             | Connects to a gameserver at the specified IP address so you can join multiplayer. Example: `OPEN 127.0.0.1` |
 | `UNLOCK UTADMIN <CODE>` | Sends a code to the server requesting admin rights. The server must approve it. Example: `UNLOCK UTADMIN 1234` |
-| `ROOM <RoomID>`         | Instantly teleports your player to the specified room in the game world. Example: `ROOM 306` |
+| `ROOM <RoomID>`         | Instantly teleports your player to the specified room in the game world. Example: `ROOM 68 (Snowadin` |
 | `MOB <MobID>`           | Spawns a character or mob in the current room. Example: `MOB 95` (**ID 95 is Sans**, the iconic Undertale character) |
 | `S0`                    | Stops all in-game sound immediately. Useful for muting music or sound effects.               |
 | `S1`                    | Enables sound in the game if it was previously stopped or locked.                             |
 | `S2`                    | Locks the current audio state so it cannot be changed until unlocked.                        |
+
+---
 
 ### Example Usage
 
