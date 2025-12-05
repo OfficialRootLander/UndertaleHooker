@@ -57,7 +57,6 @@ void DrawAllSpritesOnScreen()
     const int spriteWidth = 32;
     const int spriteHeight = 32;
 
-    // screen size - adjust to Undertale's resolution
     const int screenWidth = 640;
     const int screenHeight = 480;
 
@@ -153,10 +152,8 @@ CordsPair* GetPlayerCords()
     {
         if (Pair.X == nullptr)
             continue;
-        // Filter: whole numbers, within reasonable game coordinates
         if (!Pair.HasDecimal && *Pair.X > 0 && *Pair.X < 2850.f && *Pair.Y > 0 && *Pair.Y < 600.f && !(*Pair.X == 0.f && *Pair.Y == 0.f))
         {
-            // Pick the one with the highest update counter (most active object)
             if (Pair.UpdateCounter > highestCounter)
             {
                 highestCounter = Pair.UpdateCounter;
@@ -196,11 +193,6 @@ void NegateAllBullets(CordsPair* PlayerCords)
         float dx = *Pair.X - *PlayerCords->X;
         float dy = *Pair.Y - *PlayerCords->Y;
 
-        // only negate bullets close to the player
-            //std::cout << "Negating Bullet! dx=" << dx << " dy=" << dy << "\n";
-
-            // mirror bullet relative to player
-       //first we need to actually find the bullets
         if(Pair.SpriteID == 108 || Pair.SpriteID == 109 || Pair.SpriteID == 106 && Pair.HasDecimal)
         {
             *Pair.X = -10000;

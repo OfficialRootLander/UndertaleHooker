@@ -98,17 +98,8 @@ DWORD WINAPI MainThread(LPVOID lpParam) {
     //UTSound Hooks
     GMLHOOK::Hook(UndertaleSoundCheck, &UTSound::hkMusicCheck, hkMusicCheckOG, "OnMusicCheckHook");
 
-    //Sprite Hooks
-    //UNDERTALE.exe+40F47 - E8 84710500           - call UNDERTALE.exe+980D0
-
     static void* _defaultvoid = nullptr;
 
-
-    //GMLHOOK::Hook(hmodel_address + 0x40F47, &Test::SpriteDrawHook, originalTestSpriteDrawHook, "Test_DrawSprite"); //this should be global one since it only works on everything except player
- 
-    //UNDERTALE.exe+3D0F3 - F3 0F7E 86 D4000000   - movq xmm0,[esi+000000D4]
-    //D4 player Y
-    //D8 player X
 
 
     std::cout << "Initialised All Client Hooks!\n";
